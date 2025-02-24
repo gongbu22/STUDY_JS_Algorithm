@@ -30,6 +30,12 @@ class LinkedList{
 
     }
 
+    // 리스트의 모든 원소 제거
+    clear(){
+        this.head = null;
+        this.count = 0;
+    }
+
     // 데이터삽입
     insertAt(index, data){
         if(index > this.count || index < 0){
@@ -54,6 +60,55 @@ class LinkedList{
             currentNode.next = newNode;
         }
         this.count++;
+    }
+
+    // 마지막 원소 추가
+    insertLast(data) {
+        this.insertAt(this.count, data);
+    }
+
+    // 삭제
+    deleteAt(index){
+        if(index >= this.count || index < 0){
+            throw new Error("제거할 수 없습니다.");
+        }
+
+        let currentNode = this.head;
+        // head노드 제거/ 나머지 제거
+        if (index == 0){
+            let deletedNode = this.head;
+            this.head = this.head.next;
+            this.count--;
+            return deletedNode;
+        }else{
+            for(let i=0; i< index-1; i++){
+                currentNode = currentNode.next;
+            }
+
+            let deletedNode = currentNode.next;
+            currentNode.next = currentNode.next.next;
+            this.count--;
+            return deletedNode;
+        }
+
+    }
+
+    deleteLast(){
+        return this.deleteAt(this.count -1);
+    }
+
+    // 해당 인덱스의 노드 읽기
+    getNodeAt(index){
+        if(index >= this.count || index < 0){
+            throw new Error("범위를 넘어갔습니다.");
+        }
+
+        let currentNode = this.head;
+        for(let i=0; i < index; i++){
+            currentNode = currentNode.next;
+        }
+
+        return currentNode;
     }
 }
 
