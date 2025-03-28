@@ -13,12 +13,30 @@ function fibonacci2(n, memo){
     return memo[n];
 }
 
+// 타뷸레이션 상향식
+function fibonacci3(n){
+    if(n <= 1) return n;
+
+    let table = [0, 1];
+
+    for(let i = 2; i <= n; i++){
+        table[i] = table[i - 2] + table[i - 1];
+    }
+
+    return table[n];
+}
+
 let start = new Date();
-console.log(fibonacci1(40));
+console.log(fibonacci1(80));
 let end = new Date();
 console.log(`fibonacci1 함수 실행시간: ${end - start}ms`);
 
 start = new Date();
-console.log(fibonacci2(40, {}));
+console.log(fibonacci2(80, {}));
 end = new Date();
 console.log(`fibonacci2 함수 실행시간: ${end - start}ms`);
+
+start = new Date();
+console.log(fibonacci3(80, {}));
+end = new Date();
+console.log(`fibonacci3 함수 실행시간: ${end - start}ms`);
