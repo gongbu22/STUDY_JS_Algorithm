@@ -18,3 +18,11 @@ tree3.setRightSubTree(tree7);
 console.log(`루트노드의 오른쪽 자식 노드: ${tree1.getRightSubTree().getData()}`);
 console.log(`루트노드의 오른쪽 자식의 왼쪽 자식노드: ${tree1.getRightSubTree().getLeftSubTree().getData()}`);
 
+console.log("전위 순회");
+tree1.preOrderTraversal(tree1);
+
+console.log("중위 순회");
+tree1.inOrderTraversal(tree1);
+
+console.log("후위 순회");
+tree1.postOrderTraversal(tree1);
