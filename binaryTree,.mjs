@@ -54,6 +54,20 @@ class BinaryTree{
         this.postOrderTraversal(tree.getRightSubTree());
         console.log(tree.data);
     }
+
+    // 왼쪽 자식 노드 제거
+    removeLeftSubTree() {
+        let deletingNode = this.getLeftSubTree();
+        this.setLeftSubTree(null);
+        return deletingNode;
+    }
+
+    // 오늘쪽 자식 노드 제거
+    removeRightSubTree(){
+        let deletingNode = this.getRightSubTree();
+        this.setRightSubTree(null);
+        return deletingNode;
+    }
 }
 
 export { BinaryTree };
